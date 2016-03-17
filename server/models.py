@@ -55,10 +55,12 @@ class User(Base):
     picture_url_small = Column(String(255), nullable=True)
     picture_url_medium = Column(String(255), nullable=True)
     picture_url_large = Column(String(255), nullable=True)
+    rs12913832 = Column(String(255), nullable=True)
+
     # Setting up the relationship to the relatives table and user_relatives join table
     relatives = relationship('Relative', secondary=user_relatives, backref=backref('user', lazy='dynamic'))
 
-    def __init__(self, profile_id, email, first_name, last_name, location, picture_url_small, picture_url_medium, picture_url_large):
+    def __init__(self, profile_id, email, first_name, last_name, location, picture_url_small, picture_url_medium, picture_url_large, rs12913832):
         self.profile_id = profile_id
         self.email = email
         self.first_name = first_name
@@ -67,6 +69,7 @@ class User(Base):
         self.picture_url_small = picture_url_small
         self.picture_url_medium = picture_url_medium
         self.picture_url_large = picture_url_large
+        self.rs12913832 = rs12913832
 
     def create_new_user(profile_id, email,  first_name, last_name, location, picture_url_small, picture_url_medium, picture_url_large):
         # Refactor this later to use kwargs
@@ -76,26 +79,15 @@ class User(Base):
 
 class Snp(Base):
     __tablename__ = 'snps'
-    rs_id = Column(String(255), primary_key=True, unique=True)
-    pair_one = Column(String(255))
-    pair_two = Column(String(255))
-    pair_three = Column(String(255))
-    pair_four = Column(String(255))
-    result_one = Column(String(255))
-    result_two = Column(String(255))
-    result_three = Column(String(255))
-    result_four = Column(String(255))
+    id = Column(Integer(), primary_key=True)
+    rs_id = Column(String(255))
+    dnaPair = Column(String(255))
+    outcome = Column(String(255))
 
-    def __init__(self, rs_id, pair_one, pair_two, pair_three, pair_four, result_one, result_two, result_three, result_four):
+    def __init__(self, rs_id, dnaPair, outcome):
         self.rs_id = rs_id
-        self.pair_one = pair_one
-        self.pair_two = pair_two
-        self.pair_three = pair_three
-        self.pair_four = pair_four
-        self.result_one = result_one
-        self.result_two = result_two
-        self.result_three = result_three
-        self.result_four = result_four
+        self.dnaPair = dnaPair
+        self.outcome = outcome
 
 
 Base.metadata.create_all(engine)
