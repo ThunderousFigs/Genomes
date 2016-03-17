@@ -22,7 +22,7 @@ export default class Index extends Component {
     return (
       <div className='InitialLoad'>
       <Header />
-      <h1> Hello World! HI </h1>
+      <h1> Hello World! asdfds sddfsdffsd HI </h1>
       <Footer />
       </div>
     )
