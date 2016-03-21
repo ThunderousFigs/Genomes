@@ -9,6 +9,7 @@ var app = angular.module('genome', [
 
 .config(function ($routeProvider) {
   $routeProvider
+
     .when('/signin', {
       templateUrl: '/static/app/auth/signin.html',
       controller: 'AuthController'
@@ -32,4 +33,4 @@ var app = angular.module('genome', [
     .otherwise({
       redirectTo : '/'
     })
-})
+});
