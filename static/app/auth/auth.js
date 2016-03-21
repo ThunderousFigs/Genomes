@@ -23,7 +23,10 @@ angular.module('genome.auth', [])
   };
 
   var signOut = function() {
-    // Remove cookies
+    // Remove user info from cookies and clear localStorage
+    $cookies.remove("user_profile_id");
+
+    $window.localStorage.removeItem('');
   };
 
   // Nothing has access to the functions in factory unless we return an object with references to those functions
