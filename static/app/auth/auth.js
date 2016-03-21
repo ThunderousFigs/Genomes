@@ -1,14 +1,15 @@
 angular.module('genome.auth', [])
 
-.controller('AuthController', function($scope, $rootScope, $cookies, $location, $timeout, AuthFactory) {
+.controller('AuthController', function($scope, $rootScope, $cookies, $location, $timeout, $window, AuthFactory) {
   $scope.user = {};
 
   $rootScope.signOut = function() {
     // Remove cookies
+    console.log('Signout being called');
     AuthFactory.signOut();
-    // Delay redirect to /signin in case of cookie delays
+    // Delay redirect to landing page in case of cookie delays
     $timeout(function() {
-      $location.path('/signin')
+      $location.path('/signout');
     }, 2000);
   };
 
@@ -22,6 +23,13 @@ angular.module('genome.auth', [])
  
 .factory('AuthFactory', function($http, $cookies) {
 
+  var redirectToLanding = function(){
+    return $http({
+      method: 'GET',
+      url: '/'
+    })
+  };
+
   var isAuth = function() {
     return !!$cookies['user_profile_id'];
   };
@@ -29,10 +37,12 @@ angular.module('genome.auth', [])
   var signOut = function() {
     // Remove user info from cookies
     $cookies["user_profile_id"] = "";
+    console.log($cookies);
   };
 
   return {
     signOut: signOut,
-    isAuth: isAuth
+    isAuth: isAuth,
+    redirectToLanding: redirectToLanding
   }
 })
