@@ -1,6 +1,6 @@
 angular.module('genome.auth', [])
 
-.controller('AuthController', function($scope, $rootScope, $location, $timeout, AuthFactory) {
+.controller('AuthController', function($scope, $rootScope, $cookies, $location, $timeout, AuthFactory) {
   $scope.user = {};
 
   $rootScope.signOut = function() {
@@ -12,24 +12,25 @@ angular.module('genome.auth', [])
     }, 2000);
   };
 
+  $scope.getUserProfileId = function () {
+    $rootScope.user_profile_id = $cookies['user_profile_id'];
+  };
+
+  $scope.getUserProfileId();
 })
   
  
 .factory('AuthFactory', function($http, $cookies) {
 
   var isAuth = function() {
-    console.log($cookies.get('user_profile_id'))
-    return !!$cookies.get('user_profile_id');
+    return !!$cookies['user_profile_id'];
   };
 
   var signOut = function() {
-    // Remove user info from cookies and clear localStorage
-    $cookies.remove("user_profile_id");
-
-    $window.localStorage.removeItem('');
+    // Remove user info from cookies
+    $cookies["user_profile_id"] = "";
   };
 
-  // Nothing has access to the functions in factory unless we return an object with references to those functions
   return {
     signOut: signOut,
     isAuth: isAuth

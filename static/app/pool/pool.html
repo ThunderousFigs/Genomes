@@ -8,11 +8,13 @@
 </div>
 
 
-<div class="relativesChart">
-	$rootScope relatives:
-	<ul>
-	<li ng-repeat="rel in rels track by $index">{{rel}}</li>
-	</ul>
-	<bars-chart chart-data="myData" ></bars-chart>
-	<pool-visualization val="relatives"></pool-visualization>
+$rootScope relatives:
+<ul>
+<li ng-repeat="rel in rels track by $index">{{rel}}</li>
+</ul>
+<bars-chart chart-data="myData" ></bars-chart>
+<pool-visualization val="relatives"></pool-visualization>
+
+<div class="testingAuth" ng-controller="AuthController">
+  <button ng-click="signOut()">signout </button>
 </div>
