@@ -6,7 +6,12 @@ angular.module('genome.pool', [])
   $scope.circles = [];
   var boardHeight = $window.innerHeight;
   var boardWidth = $window.innerWidth;
-  var map = new Datamap({element: document.getElementById('container')});
+
+  var globe =  new Datamap({
+        scope: 'world',
+        element: document.getElementById('projection_map'),
+        projection: 'orthographic'
+      });
 
   $scope.showMap = false;
   $scope.filterRegions = function() {

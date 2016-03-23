@@ -29,6 +29,7 @@
     "angular-mocks": "~1.3.16",
     "jQuery": "^2.2.0",
     "angular-cookies": "1.3.20",
-    "datamaps": "^0.5.1"
+    "datamaps": "^0.5.1",
+    "bootstrap": "^3.3.6"
   }
 }
