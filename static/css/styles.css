@@ -68,9 +68,6 @@ h3 {
   margin-bottom: 20px;
 }
 
-
-
-
 #logo {
   color: #fff;
   text-decoration: none;
@@ -188,8 +185,20 @@ padding: 250px 0;
 color: #fff;
 background-size: cover;
 }
-#copyright { color: #fff; font-family:"Wellfleet"; font-size: 14px; margin-top: 100px; text-align: center; }
-#copyright a { text-decoration: none; color: #fff; }
+
+#copyright { 
+  color: #fff; 
+  font-family:"Wellfleet"; 
+  font-size: 14px; 
+  margin-top: 100px; 
+  text-align: center; 
+}
+
+#copyright a { 
+  text-decoration: none; 
+  color: #fff; 
+}
+
 .landingHeader {
   text-align: center;
   font-size: 100px;
@@ -203,11 +212,13 @@ background-size: cover;
 .login-button {
   cursor: pointer;
 }
+
 .remove {
   color: white;
   cursor: pointer;
   margin-left: 40px;
 }
+
 .login-area {
   display: flex;
   flex-direction: row;
@@ -216,6 +227,7 @@ background-size: cover;
   max-width: 100%;
   height: 50%;
 }
+
 .login-button {
   max-height: 50%;
   max-width: 50%;
