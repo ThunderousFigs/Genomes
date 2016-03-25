@@ -31,7 +31,6 @@ h3 {
   z-index: 1;
   position: relative;
 }
-
 .center {
   margin: 0 auto;
 }
@@ -42,7 +41,6 @@ h3 {
 .clear {
   clear: both;
 }
-
 #header {
   width: 100%;
   background: url('../../static/assets/header-bg.png');
@@ -92,7 +90,6 @@ h3 {
   color: #fff;
   opacity:1;
 }
-
 .quotes {
   font-family: 'Goudy Bookletter 1911', serif;
   font-weight: normal;
@@ -100,7 +97,6 @@ h3 {
   text-align: left;
   margin: 50px auto;
 }
-
 .quote_subtitle_white {
   font-family:"Wellfleet";
   margin: 70px 0 0 75px;
@@ -113,12 +109,10 @@ h3 {
   color: #94a4a4;
   font-size: 20px;
 }
-
 .quotes_container {
   width: 800px;
   margin: 0 auto;
 }
-
 #slide1, #slide2{
   width: 100%;
 }
@@ -159,25 +153,20 @@ padding: 250px 0;
 color: #fff;
 background-size: cover;
 }
-
 #copyright { color: #fff; font-family:"Wellfleet"; font-size: 14px; margin-top: 100px; text-align: center; }
 #copyright a { text-decoration: none; color: #fff; }
-
 .landingHeader {
   border: solid white 2px;
   margin-right: 20%;
   margin-left: 20%;
 }
-
 .login-button {
   cursor: pointer;
 }
-
 .remove {
   color: white;
   cursor: pointer;
 }
-
 .login-area {
   display: flex;
   flex-direction: row;
@@ -186,7 +175,6 @@ background-size: cover;
   max-width: 100%;
   height: 50%;
 }
-
 .login-button {
   max-height: 50%;
   max-width: 50%;
