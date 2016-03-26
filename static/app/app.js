@@ -27,7 +27,7 @@ var app = angular.module('genome', [
     })
     .when('/pool', {
       templateUrl: '/static/app/pool/pool.html',
-      controller: 'PoolController',
+      // controller: 'PoolController',
       authenticate: true
     })
     .when('/self', {
