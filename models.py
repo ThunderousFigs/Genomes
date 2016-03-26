@@ -28,7 +28,6 @@ except:
     connection.close()
 
 
-
 # Join table between users and relatives, see User model relatives property
 user_relatives = Table('user_relatives',
     Base.metadata,

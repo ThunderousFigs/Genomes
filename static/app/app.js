@@ -1,4 +1,5 @@
 var app = angular.module('genome', [
+  'genome.tree',
   'genome.pool',
   'genome.self',
   'genome.relatives',
@@ -33,6 +34,10 @@ var app = angular.module('genome', [
       templateUrl: '/static/app/self/self.html',
       controller: 'SelfController',
       authenticate: true
+    })
+    .when('/tree', {
+      templateUrl: '/static/app/tree/tree.html',
+      controller: 'TreeController'
     })
     .otherwise({
       redirectTo : '/signin'
