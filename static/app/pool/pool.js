@@ -365,4 +365,3 @@ angular.module('genome.pool', [])
   //Initialize the page with a call to getRelatives
   $scope.getRelatives();
 });
-
