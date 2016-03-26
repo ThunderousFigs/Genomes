@@ -8,10 +8,10 @@
 
 	<div class="dna-info">
 		<div ng-show="current.rsid" class="snp-information">
-			<div class="md-subhead"> At location <strong>{{current.rsid}}</strong> </div>
+			<div class="md-subhead"> At location <a ng-href="http://www.snpedia.com/index.php/{{current.rsid}}" target="_blank"> {{current.rsid}} </a> </div>
 		  <div class="md-subhead"> You have "{{ current.pair }}." </div>
 		 	<div class="md-subhead"> {{ current.outcome }} </div>
-	    </div>
-		</div>
+	  </div>
+	</div>
 </div>
 
