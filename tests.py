@@ -32,15 +32,3 @@ class MyTest(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-
-# import app or make new app?
-# create new database or new database db_session
-
-
-# chris currently looking into enabling the demo user by getting access token from one of our accounts
-
-# shouldn't test demo user creation
-
-# actually create user and stuff
-# then do queries
-# add api info in later
