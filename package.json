@@ -27,7 +27,19 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "grunt": "^0.4.5"
+    "chai": "^3.5.0",
+    "grunt": "^0.4.5",
+    "karma": "^0.13.22",
+    "karma-jasmine": "^0.3.8",
+    "karma-mocha": "^0.2.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "jasmine-core": "^2.4.1",
+    "karma-jasmine": "^0.3.8",
+    "karma-mocha": "^0.2.2",
+    "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.7",
+    "requirejs": "^2.2.0"
+  }
 }

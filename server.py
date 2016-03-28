@@ -5,7 +5,6 @@ from flask.ext.sqlalchemy import SQLAlchemy
 import jwt
 from encoder import jwt_encode
 from logging import Formatter, FileHandler
-import models
 import controller
 from os import path
 import models
@@ -44,6 +43,7 @@ def getUser():
 
 @app.route('/demo/')
 def makeDemoUser():
+    print 'makeDemoUser is being called yo'
     #Add demo user to DB if they don't already exist
     controller.create_demo_user()
     demo_profile_id = 'demo_id'
@@ -188,5 +188,5 @@ def receive_code():
 
 #Initialize python server on port
 if __name__ == '__main__':
-  print 'Server has been initialized'
-  app.run(debug=True, port=PORT)
+    print 'Server has been initialized'
+    app.run(debug=True, port=PORT)

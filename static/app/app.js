@@ -1,4 +1,5 @@
 var app = angular.module('genome', [
+  'genome.tree',
   'genome.pool',
   'genome.self',
   'genome.relatives',
@@ -26,13 +27,17 @@ var app = angular.module('genome', [
     })
     .when('/pool', {
       templateUrl: '/static/app/pool/pool.html',
-      controller: 'PoolController',
+      controller: 'PoolController', //TODO : need to figure out why this is being loaded twice
       authenticate: true
     })
     .when('/self', {
       templateUrl: '/static/app/self/self.html',
       controller: 'SelfController',
       authenticate: true
+    })
+    .when('/tree', {
+      templateUrl: '/static/app/tree/tree.html',
+      controller: 'TreeController'
     })
     .otherwise({
       redirectTo : '/signin'

@@ -62,10 +62,14 @@
         <div class="quotes_container">
           <h3 class="quotes">Log in with 23andMe if you have an account. Or take the app for a test drive with anonymous data.</h3>
           <div class="login-area">
-              <img src="https://p2.zdassets.com/hc/theme_assets/110137/200043004/icn_logo_retina.png" align="left"/ type="button" value="Log in with 23andMe" onclick="location.href='{{ auth_url }}'" class="login-button">
-
-              <img src="http://media.indiedb.com/images/articles/1/159/158317/auto/20140509082052-Button_play.png" align="left"/ type="button" onclick="location.href='/demo/'" class="login-button">
-
+            <div>
+              <img src="../static/assets/bob.png" align="left"/ type="button" onclick="location.href='/demo/'" class="login-button">
+              <h4 class="author_name_white">Log in as 'Lilly Demo'</h4>
+            </div>
+            <div>
+              <img src="../static/assets/norman.png" align="left"/ type="button" value="Log in with 23andMe" onclick="location.href='{{ auth_url }}'" class="login-button">
+              <h4 class="author_name_white">Log in with 23andMe</h4>
+            </div>
           </div>
         </div>
           <div id="copyright"><a href="http://www.github.com/ThunderousFigs/Genomie">Copyright Genomie.com </a></div>
