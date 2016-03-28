@@ -1,3 +1,4 @@
+<<<<<<< 7873536c3f996bc332353bdeee85bd393f237a0e
 angular.module('genome.pool', [])
 .controller('PoolController', function($scope, d3Service, Relatives, $rootScope, $window, $location
   ) {
@@ -365,4 +366,3 @@ angular.module('genome.pool', [])
   //Initialize the page with a call to getRelatives
   $scope.getRelatives();
 });
-
