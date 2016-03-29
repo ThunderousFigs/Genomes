@@ -6,6 +6,9 @@ angular.module('genome.pool', ['angular-intro'])
   $scope.relatives = [];
   $rootScope.rels = [];
   $scope.circles = [];
+  $rootScope.currentLocation = function(){
+    return $location.path();
+  }
 
   var boardHeight = $window.innerHeight;
   var boardWidth = $window.innerWidth;
@@ -85,7 +88,7 @@ angular.module('genome.pool', ['angular-intro'])
 
   var moveBubblesToRegions = function() {
     d3.selectAll("circle").data($scope.circles).attr('r', function(d){return d.radius;});
-  }
+  };
 
     //Move Bubbles Back to Center of Page
    var replaceBubblesInCenter = function() {
@@ -93,7 +96,7 @@ angular.module('genome.pool', ['angular-intro'])
         bubble['cx'] = bubble['oldCX'];
         bubble['cy'] = bubble['oldCY'];
         bubble['radius'] = bubble['oldRadius'];
-      })
+      });
       //Explicitly restate the force layout
       var nodes = $scope.circles;
       var force = d3.layout.force()
@@ -109,7 +112,7 @@ angular.module('genome.pool', ['angular-intro'])
   //Toggle Side Nav Icons
   var whichView = function() {
     $rootScope.view = $location.$$path;
-  }
+  };
   whichView();
   //End Toggle Side Nav Icons
   //Toggle Map
@@ -125,7 +128,7 @@ angular.module('genome.pool', ['angular-intro'])
       $rootScope.removeMap();
       mapShowing = false;
     }
-  }
+  };
 
   $rootScope.filterRegions = function() {
     toggleMap();

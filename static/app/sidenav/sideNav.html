@@ -1,7 +1,11 @@
 <section class="side-nav" id="path2">
 	<div class="poolViewOptions" ng-controller="PoolController">
     <img src="../../../static/assets/globe.png" type="button" ng-click="filterRegions()" class="side-nav-button" ng-show="view === '/pool'"/>
+    <a href="#/tree/"><img src="../../../static/assets/tree.png" type="button" class="side-nav-button" ng-show="view === '/pool'"/></a>
     <img src="../../../static/assets/question.png" type="button" title="Help" ng-intro-options="IntroOptions" ng-click="CallMe()" class="side-nav-button"  ng-intro-method="CallMe" ng-show="view === '/pool'"/>
     <img src="../../../static/assets/question.png" type="button" id="helix-path-7" title="Help" ng-intro-autostart="true" ng-intro-options="IntroOptions" ng-click="CallMe()" ng-intro-method="CallMe" class="side-nav-button" ng-show="view === '/self'"/>
+  </div>
+  <div class="treeViewOptions" ng-controller="TreeController">
+    <a href="#/pool/" ><img src="../../../static/assets/pool.png" type="button" class="side-nav-button" ng-show="currentLocation() === '/tree'"/></a>
   </div>
 </section>

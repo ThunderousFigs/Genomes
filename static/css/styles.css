@@ -3,6 +3,7 @@ body{
   padding: 0;
   width: 100%;
 }
+
 h1 {
   font-family:"Arvo", sans-serif;
   font-weight:normal;
@@ -12,6 +13,7 @@ h1 {
   margin: 0;
   padding: 0;
 }
+
 h2 {
   font-family:"Arvo", sans-serif;
   font-weight: normal;
@@ -21,6 +23,7 @@ h2 {
   margin: 0;
   padding: 0;
 }
+
 h3 {
   font-family: Oswald, sans-serif;
   font-weight: normal;
@@ -35,10 +38,12 @@ h3 {
 .center {
   margin: 0 auto;
 }
+
 .content {
   margin: 0 auto;
   width: 960px;
 }
+
 .clear {
   clear: both;
 }
@@ -57,11 +62,13 @@ h3 {
   position: fixed;
   margin-top: 0px;
 }
+
 #nav {
   float: right;
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 #logo a {
   color: #fff;
   text-decoration: none;
@@ -79,11 +86,13 @@ h3 {
   margin: 0 auto;
   list-style: none;
 }
+
 #nav li{
   margin-top: 9px;
   float: left;
   padding-left: 21px;
 }
+
 #nav li a {
   color: #fff;
   opacity:0.6;
@@ -91,11 +100,13 @@ h3 {
   text-decoration: none;
   font-family: 'Lato';
 }
+
 #nav li a.active {
   color: #fff;
   opacity:1;
   border-bottom: 2px solid #fff;
 }
+
 #nav li a:hover {
   color: #fff;
   opacity:1;
@@ -115,6 +126,7 @@ h3 {
   color: #fff;
   font-size: 20px;
 }
+
 .quote_subtitle_gray {
   font-family: "Lato";
   font-weight: 300;
@@ -131,6 +143,7 @@ h3 {
 #slide1, #slide2{
   width: 100%;
 }
+
 #slide1{
   background:url('../../static/assets/cosmo1.jpeg') 50% 0 no-repeat fixed;
   color: #fff;
@@ -139,6 +152,7 @@ h3 {
   padding: 200px 0 260px 0;
   background-size: cover;
 }
+
 #slide2{
   background-color: #fff;
   color: #333333;
@@ -147,6 +161,7 @@ h3 {
   overflow: hidden;
   padding: 200px 0;
 }
+
 #slide3{
   background: url(../../static/assets/worldmapViolet.png) 50% 0 no-repeat fixed;
   color: #fff;
@@ -154,12 +169,14 @@ h3 {
   padding: 170px 0 0 0;
   background-size: cover;
 }
+
 #slide4{
   background-color: #fff;
   color: #333333;
   height: 300px;
   padding: 200px 0;
 }
+
 #slide5{
 background: url(../../static/assets/jellyfish-crop.gif) 50% 0 no-repeat fixed;
 height: 200px;
@@ -171,7 +188,6 @@ background-size: cover;
 
 #copyright { color: #fff; font-family:"Wellfleet"; font-size: 14px; margin-top: 100px; text-align: center; }
 #copyright a { text-decoration: none; color: #fff; }
-
 .landingHeader {
   text-align: center;
   font-size: 100px;

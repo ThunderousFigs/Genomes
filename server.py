@@ -5,7 +5,6 @@ from flask.ext.sqlalchemy import SQLAlchemy
 import jwt
 from encoder import jwt_encode
 from logging import Formatter, FileHandler
-import models
 import controller
 from os import path
 import models

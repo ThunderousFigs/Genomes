@@ -33,7 +33,6 @@ body {
   display: flex;
 }
 
-
 .dnahelixcontainer {
   max-width: 100%;
   display: inline-block;
@@ -81,7 +80,6 @@ body {
 .view-selection {
   text-align: center;
 }
-
 
 .header {
   display: flex;
@@ -150,12 +148,6 @@ svg#mainCanvas {
   stroke: #f00;
 }
 
-.node {
-  fill: none;
-  stroke: #ccc;
-  shape-rendering: crispEdges;
-}
-
 .brush .extent {
   stroke: #fff;
   fill-opacity: .125;
@@ -189,4 +181,37 @@ svg#mainCanvas {
 @-o-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+Status API Training Shop Blog About
+
+svg {
+  position: absolute;
+  margin-left: 10%;
+}
+
+svg.datamap {
+  padding-top: 0px;
+}
+
+.node circle {
+  cursor: pointer;
+  stroke: #3182bd;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 10px sans-serif;
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+line.link {
+  fill: none;
+  stroke: #9ecae1;
+  stroke-width: 1.5px;
+}
+
+svg#treeSVG{
+  position: absolute;
+  margin-left: 20%;
 }
