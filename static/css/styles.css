@@ -49,21 +49,22 @@ h3 {
   height: 80px;
   position: fixed;
   margin-top: 0px;
+  font-family:"Lato";
 }
 #nav {
-  width: 410px;
+  /*width: px;*/
   float: right;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 #logo a {
   color: #fff;
   text-decoration: none;
   float: left;
-  font-size: 30px;
+  font-size: 38px;
   margin-top: 20px;
-  color: #fff;
-  font-family:"Wellfleet";
-  font-weight: bold;
+  margin-top: 20px;
+  font-weight: 900;
 }
 #nav ul{
   list-style: none;
@@ -81,7 +82,6 @@ h3 {
   opacity:0.6;
   font-size: 16px;
   text-decoration: none;
-  font-family: 'Wellfleet';
 }
 #nav li a.active {
   color: #fff;
@@ -94,7 +94,7 @@ h3 {
 }
 
 .quotes {
-  font-family: 'Goudy Bookletter 1911', serif;
+  font-family: 'Lato';
   font-weight: normal;
   font-size: 30px;
   text-align: left;
@@ -102,13 +102,15 @@ h3 {
 }
 
 .quote_subtitle_white {
-  font-family:"Wellfleet";
+  font-family:"Lato";
+  font-weight: 300;
   margin: 70px 0 0 75px;
   color: #fff;
   font-size: 20px;
 }
 .quote_subtitle_gray {
-  font-family:"Wellfleet";
+  font-family:"Lato";
+  font-weight: 300;
   margin: 70px 0 0 75px;
   color: #94a4a4;
   font-size: 20px;
@@ -152,21 +154,25 @@ h3 {
   padding: 200px 0;
 }
 #slide5{
-background: url(../../static/assets/jellyfish-crop.gif) 50% 0 no-repeat fixed;
-height: 200px;
-margin: 0 auto;
-padding: 250px 0;
-color: #fff;
-background-size: cover;
+  background: url(../../static/assets/jellyfish-crop.gif) 50% 0 no-repeat fixed;
+  height: 200px;
+  margin: 0 auto;
+  padding: 250px 0;
+  color: #fff;
+  background-size: cover;
 }
 
 #copyright { color: #fff; font-family:"Wellfleet"; font-size: 14px; margin-top: 100px; text-align: center; }
 #copyright a { text-decoration: none; color: #fff; }
 
 .landingHeader {
-  border: solid white 2px;
-  margin-right: 20%;
-  margin-left: 20%;
+  /*border: solid white 2px;*/
+/*  margin-right: 10%;
+  margin-left: 10%;*/
+  text-align: center;
+  font-size: 100px;
+  font-family:"Lato";
+  line-height: 50%;
 }
 
 .login-button {
