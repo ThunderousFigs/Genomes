@@ -87,6 +87,10 @@ body {
                0 0 40px #A5F1FF;
 }
 
+.title{
+  text-align:center;
+}
+
 .header-options {
   float: right;
 }

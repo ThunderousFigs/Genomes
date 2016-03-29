@@ -302,7 +302,7 @@ angular.module('genome.pool', ['angular-intro'])
       var similarRange = (range[0] - range[range.length-1]);
 
       if (similarRange > 0 && similarRange < 0.2) {
-        if (similarity < 0.01){
+        if (similarity <= 0.01){
           similarity = 0.03;
         } else if (similarity > 0.01 && similarity < 0.012) {
           similarity = 0.035;
