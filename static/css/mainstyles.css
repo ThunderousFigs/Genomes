@@ -18,13 +18,18 @@ body {
 }
 
 .sideNavContainer {
-  align-self: flex-start;
   display: flex;
-  align-content: flex-start;
+  align-self: flex-start;
   flex-direction: column;
   max-height: 100%;
   margin-top: 10%;
   float: left;
+  justify-content: center;
+}
+
+.side-nav-button {
+  cursor: pointer;
+  display: flex;
 }
 
 .dnahelixcontainer {
@@ -110,10 +115,6 @@ svg#helix {
   margin-left: 30%;
 }
 
-.side-nav-button {
-  cursor: pointer;
-}
-
 /*POOL PAGE*/
 
 svg#mainCanvas {
@@ -123,10 +124,6 @@ svg#mainCanvas {
   height: 100%;
   max-width: 90%;
   max-height: 100%;
-}
-
-.pool {
-
 }
 
 #map {
