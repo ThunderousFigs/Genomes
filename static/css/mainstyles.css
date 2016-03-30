@@ -1,10 +1,161 @@
 body {
   display: inline-block;
   width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Lato';
 }
+
+
+.container {
+  max-width: 510px;
+  margin: 0 auto;
+}
+
+.video-wrapper {
+  margin: 4.0rem 0;
+}
+
+.video-detail {
+  margin: 1.0rem 2.0rem;
+  border-left: 6px solid #FFACAC;
+  padding: 0.6rem;
+}
+
+.controls {
+  margin: 1.0rem 2.0rem;
+}
+
+.controls .border-button {
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.play,
+.pause {
+  width: 49%;
+}
+
+.toggle {
+  width: 100%;
+}
+
+.pause {
+  float: right;
+}
+
+footer {
+  text-align: center;
+  padding-bottom: 6.0rem;
+}
+
+.border-button {
+  color: #77BCF6;
+  background-color: #FFF;
+  font-family: "Oswald", sans-serif;
+  border: 2px solid #77BCF6;
+  border-radius: 4px;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: box-shadow 300ms;
+}
+
+.border-button:hover {
+  box-shadow: 0px 2px 4px rgba(119, 188, 246, 0.5);
+}
+
+.border-button:active {
+  transform: translateY(2px);
+}
+
+.view-github {
+  display: block;
+  margin: 0 1.0rem;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  padding: 1.0rem 0.8rem;
+}
+
+.view-advanced {
+  display: inline-block;
+  text-decoration: none;
+  color: #444;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin-top: 1.0rem;
+}
+
+.view-advanced:hover {
+  border-bottom: 2px solid #77BCF6;
+}
+
+/* .embed-* is from bootstrap, for responsive videos */
+.embed-responsive {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgba(240, 240, 240, 0.4);
+}
+
+.embed-responsive.embed-responsive-16by9 {
+  padding-bottom: 56.25%;
+}
+
+.embed-responsive-item {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* hljs is higlight.js, for code blocks */
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1.0rem;
+  background: rgba(240, 240, 240, 0.4);
+  -webkit-text-size-adjust: none;
+  font-size: 1.1rem;
+  border-radius: 4px;
+}
+
+.hljs-keyword,.hljs-id,.hljs-title,.hljs-built_in,.css .hljs-tag,.hljs-javadoctag,.hljs-phpdoc,.hljs-dartdoc,.hljs-yardoctag,.smalltalk .hljs-class,.hljs-winutils,.bash .hljs-variable,.apache .hljs-tag,.hljs-type,.hljs-typename,.tex .hljs-command,.asciidoc .hljs-strong,.markdown .hljs-strong,.hljs-request,.hljs-status {
+  font-weight: 700;
+}
+
+.hljs-title,
+.hljs-keyword {
+  color: #659FD0;
+}
+
+.hljs-comment {
+  color: #99B1BB;
+}
+
+.hljs-value,
+.hljs-string {
+  color: #E87E7E;
+}
+
+.hljs span {
+  line-height: 1.2;
+}
+
+::selection {
+  background: #FFACAC;
+}
+::-moz-selection {
+  background: #FFACAC;
+}
+
 
 .wholePage {
   display: flex;
@@ -43,8 +194,8 @@ body {
 .dna-info {
   float: right;
   height: 30%;
-  width: 40%;
-  margin-top: 20%;
+  width: 50%;
+  margin-top: 5%;
   border-radius: 5px;
   border: 1px;
 }
@@ -58,7 +209,7 @@ body {
 }
 
 .snp-information {
-  max-width: 70%;
+  max-width: 81%;
   word-wrap: normal;
   -moz-box-shadow: 10px 10px 5px #888;
   -webkit-box-shadow: 10px 10px 5px #888;
@@ -87,6 +238,71 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: #34495e;
+}
+
+.footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:20px;
+   width:100%;
+   background-color: #34495e;
+   color: #D0F8FF;
+}
+
+.copyright {
+  padding-left: 1%;
+  max-width: 100%;
+  width: 25%;
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+}
+
+.footerLinks {
+  width: 11%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-left: 1%;
+  padding-right: 1%;
+  float: right;
+}
+
+#heart {
+  padding-left: 1%;
+  padding-right: 2%;
+}
+
+.aboutLink {
+  padding-right: 10%;
+}
+
+.githubLink {
+  background-image:url('../../static/assets/githubicon.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.aboutimages {
+  position: absolute;
+  height: 200px;
+  width: 400px;
+  margin-top: 10%;
+  margin-left: 35%;
+}
+
+.teammatePic {
+  max-width: 400px;
+  max-height: 500px;
 }
 
 .greetings {

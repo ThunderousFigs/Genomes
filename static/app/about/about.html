@@ -1,0 +1,11 @@
+<div class="aboutimages">
+  <carousel interval="10000">
+    <slide ng-repeat="image in images" active="slide.active">
+      <img class="teammatePic" ng-src="{{image.pic}}">
+      <div class="carousel-caption">
+        <h4 class="eachDescription"> {{ image.name }} </h4>
+      </div>
+      <div class="more-info"> {{ image.description }} </div>
+    </slide>
+  </carousel>
+</div>

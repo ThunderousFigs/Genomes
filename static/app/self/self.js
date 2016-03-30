@@ -1,4 +1,5 @@
 angular.module('genome.self', [])
+
 .controller('SelfController', function ($scope, $cookies, $location, SelfFactory, d3Service, $rootScope) {
 
   $scope.outcomes = $scope.outcomes || [];
@@ -53,7 +54,8 @@ angular.module('genome.self', [])
                     title: $scope.outcomes[d].title,
                     rsid: $scope.outcomes[d].rsid,
                     pair: $scope.outcomes[d].pair,
-                    outcome: $scope.outcomes[d].outcome
+                    outcome: $scope.outcomes[d].outcome,
+                    video: $scope.outcomes[d].video
                   },
                   { x: Math.cos(t - Math.PI),
                     y: d,
@@ -61,7 +63,8 @@ angular.module('genome.self', [])
                     title: $scope.outcomes[d].title,
                     rsid: $scope.outcomes[d].rsid,
                     pair: $scope.outcomes[d].pair,
-                    outcome: $scope.outcomes[d].outcome
+                    outcome: $scope.outcomes[d].outcome,
+                    video: $scope.outcomes[d].video
                   }];
         });
       var flat = _.flatten(data);
@@ -103,14 +106,17 @@ angular.module('genome.self', [])
           .attr("r",  function (d) { return z(d.z); })
           .attr("fill-opacity", function (d) { return z(d.z) / 10;})
           .attr("fill", function (d, i) { return fills[index%3]; })
-          .attr("title", function (d){ return d.title })
+          .attr("title", function (d){ return d.title; })
           .attr("rsid", function(d){ return d.rsid; })
           .attr("pair", function(d){ return d.pair; })
           .attr("outcome", function(d){ return d.outcome; })
+          .attr("video", function(d) { return d.video; })
           .on("mouseover", function (d, i) {
+            $('iframe').remove();
+            $('div.youtubevidbox').append(d.video);
             // Using $scope.$apply to force angular to rerender once the scope has been updated with the current snp
-            $scope.$apply($scope.current = { title: d.title, rsid: d.rsid, pair: d.pair, outcome: d.outcome });
-          });
+            $scope.$apply($scope.current = { title: d.title, rsid: d.rsid, pair: d.pair, outcome: d.outcome, video: d.video });
+          })
         d3.select(this)
             .select('line')
             .attr("x2", x(d[0].x) + inverted * z(d[0].z))
@@ -129,7 +135,8 @@ angular.module('genome.self', [])
       title: 'Example Box',
       rsid: 'rs12345',
       pair: 'AA',
-      outcome: 'A very interesting fact'
+      outcome: 'A very interesting fact',
+      video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/zwibgNGe4aY" frameborder="0" allowfullscreen></iframe>'
     };
 
     numX = $scope.outcomes.length;

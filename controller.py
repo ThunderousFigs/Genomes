@@ -48,6 +48,6 @@ def createSnpsTable():
     if len(models.db_session.query(models.Snp).all()) == 0:
 
         for snp in snps.sample_snps:
-            new_snp = models.Snp(snp['title'], snp['rs_id'], snp['dnaPair'], snp['outcome'])
+            new_snp = models.Snp(snp['title'], snp['rs_id'], snp['dnaPair'], snp['outcome'], snp['video'])
             models.db_session.add(new_snp)
             models.db_session.commit()

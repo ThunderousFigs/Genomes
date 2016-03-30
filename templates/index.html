@@ -13,26 +13,31 @@
   </head>
 
   <body ng-app="genome" ng-cloak>
-    <div class="TopNavContainer">
-      <dst-top-nav></dst-top-nav>
-    </div>
-    <div class="wholepage">
-      <div class="BodyContainer">
-        <div id="mapContainer">
-          <div ng-view></div>
-        </div>
-      </div>
-      <div class="sideNavContainer">
-        <dst-side-nav></dst-side-nav>
+  <div class="TopNavContainer">
+    <dst-top-nav></dst-top-nav>
+  </div>
+  <div class="wholepage">
+    <div class="BodyContainer">
+      <div id="mapContainer">
+        <div ng-view></div>
       </div>
     </div>
+    <div class="sideNavContainer">
+      <dst-side-nav></dst-side-nav>
+    </div>
+  </div>
+  <div class="footer"> 
+    <dst-footer></dst-footer>     
+  </div>
 
 
     <script src="../static/lib/intro.js/minified/intro.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <script src="../static/lib/datamaps/dist/datamaps.world.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+
 
     <script src="../static/lib/jquery/dist/jquery.min.js"></script>
     <script src='../static/lib/angular/angular.js'></script>
@@ -51,14 +56,17 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
     <!-- END of Angular Material Library -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src='../static/app/app.js'></script>
     <script src='../static/app/auth/auth.js'></script>
     <script src='../static/app/directives/dst_top_nav.js'></script>
+    <script src='../static/app/directives/dst_footer.js'></script>
     <script src='../static/app/services/relatives.js'></script>
     <script src='../static/app/services/d3Service.js'></script>
     <script src='../static/app/sidenav/sideNav.js'></script>
+    <script src='../static/app/about/about.js'></script>
     <script src='../static/app/pool/pool.js'></script>
     <script src='../static/app/self/self.js'></script>
   </body>
