@@ -29,13 +29,16 @@ module.exports = function(config) {
       'https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js',
       '../../static/app/**/*.js',
       '../../static/app/app.js',
-      '../client/routing-spec.js'
+      '../client/routing-spec.js',
+      '../client/self-spec.js'
     ],
 
 
     // list of files to exclude
     exclude: [
     ],
+
+
 
 
     // test results reporter to use

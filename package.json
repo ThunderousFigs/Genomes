@@ -4,7 +4,7 @@
   "description": "Genome sequence visualizer",
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install",
-    "test": "NODE_ENV=test BABEL_JEST_STAGE=0 jest",
+    "test": "karma start test/client/test.conf.js",
     "start": "python server.py"
   },
   "repository": {

@@ -13,7 +13,6 @@ describe('Routing', function () {
       // $routeParams = $injector.get('$routeParams');
       $route = $injector.get('$route');
       // AuthController = $injector.get('AuthController')
-      console.log('piggy piggy piggy ',$route.routes['/self']);
     });
   });
 
