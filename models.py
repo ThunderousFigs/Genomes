@@ -211,19 +211,22 @@ class Snp(Base):
     rs_id = Column(String(255))
     dnaPair = Column(String(255))
     outcome = Column(String(255))
+    video = Column(String(255))
 
-    def __init__(self, title, rs_id, dnaPair, outcome):
+    def __init__(self, title, rs_id, dnaPair, outcome, video):
         self.title = title
         self.rs_id = rs_id
         self.dnaPair = dnaPair
         self.outcome = outcome
+        self.video = video
 
     def serialize(self):
         return {
             'title': self.title,
             'rs_id': self.rs_id,
             'dnaPair': self.dnaPair,
-            'outcome': self.outcome
+            'outcome': self.outcome,
+            'video': self.video
         }
 
 
