@@ -21,18 +21,6 @@ describe('Self Controller', function () {
       expect(SelfFactory.getSnps).to.be.a('function');
     });
 
-    xit('should get all SNPS with `getSnps`', function () {
-      var mockResponse = [
-        { title: 'Twitter',
-          url: 'https://twitter.com' },
-        { title: 'Reddit',
-          url: 'https://reddit.com/r/javascript' }
-      ];
-
-      $httpBackend.expect('GET', '/api/links').respond(mockResponse);
-
-      $httpBackend.flush();
-    });
   });
 
   describe('SelfController', function (){
@@ -68,12 +56,12 @@ describe('Self Controller', function () {
     });
 
     it('should call getSnps when the controller is loaded', function(){
-      $cookies.user_profile_id = "demo_id";
-      sinon.spy(SelfFactory, 'getSnps');
-      $httpBackend.expectPOST('/api/getsnps').respond(200);
-      $httpBackend.flush();
-      expect(SelfFactory.getSnps.called).to.equal(true);
+      $httpBackend.when('POST', '/api/getsnps', 'demo_id').respond({
 
+      });
+
+      $httpBackend.expect('POST', '/api/getsnps', 'demo_id').respond(200);
+      $httpBackend.flush();
     });
 
 

@@ -15,7 +15,8 @@ angular.module('genome.self', [])
 
   $rootScope.removeHelix = function () {
     d3.select("svg#helix").remove();
-  }
+  };
+
 
   $scope.fills = fills;
 
@@ -126,7 +127,7 @@ angular.module('genome.self', [])
             $('div.youtubevidbox').append(d.video);
             // Using $scope.$apply to force angular to rerender once the scope has been updated with the current snp
             $scope.$apply($scope.current = { title: d.title, rsid: d.rsid, pair: d.pair, outcome: d.outcome, video: d.video });
-          })
+          });
         d3.select(this)
             .select('line')
             .attr("x2", x(d[0].x) + inverted * z(d[0].z))
@@ -183,7 +184,7 @@ angular.module('genome.self', [])
         {
           element: document.querySelector('#helix-path-7'),
           intro: "Use these buttons if you want to use this walkthrough or sign out.",
-          position: 'left'
+          position: 'bottom'
         }
       ],
       showStepNumbers: false,
@@ -194,55 +195,54 @@ angular.module('genome.self', [])
       skipLabel: '<span style="color:red">Exit</span>',
       doneLabel: 'Thanks'
   };
-
-  $scope.remove = remove;
   //This function collapses the helix for a visual transition into the Pool Page.
   //This function gets called by the transitionToPool function
   var remove = function() {
     $('div.dna-info').remove();
     d3.select("svg#helix")
-      .attr("width", 3000)
+      .attr("width", 3000);
 
     d3.selectAll("line")
       .transition()
       .duration(500)
       .attr('y1', 200)
-      .attr('y2', 200)
+      .attr('y2', 200);
+
 
     d3.selectAll("circle")
       .transition()
       .duration(2000)
       .attr("r", 5)
-      .attr("cx", function(d){return 120000 * d.x})
-      .attr("cy", 100)
+      .attr("cx", function(d){return 120000 * d.x;})
+      .attr("cy", 100);
 
     d3.selectAll("line")
       .transition()
       .delay(400)
       .attr("x1", 3000)
-      .attr("x2", 5000)
+      .attr("x2", 5000);
 
-   }
+   };
    //Calls the remove function, and sets a timeout to transition the user to the pool
    //page after the helix has collapsed and been removed from the page.
   $rootScope.transitionToPool = function(){
     exit = true;
     remove();
     setTimeout(function(){$scope.$apply($location.path('/pool'));  $rootScope.removeHelix();}, 500);
-  }
+  };
+
 }])
 .factory('SelfFactory', function ($http) {
 /**
   * Used to retrieve information about SNPs pertaining to currently logged in user
 **/
-  
-
   var getSnps = function (userId) {
     return $http({
       method: 'POST',
       url: '/api/getsnps',
       data: userId
     }).then(function (snps) {
+      console.log(JSON.stringify(snps.data.outcomes));
       return snps.data.outcomes;
     }).catch(function (err) {
       console.error('An error occured retreiving your SNPs ', err);
