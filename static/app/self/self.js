@@ -94,10 +94,18 @@ angular.module('genome.self', [])
     var enter = cont.enter()
       .append("g")
       .on('mouseenter', function(d, i){
-      var children = d3.selectAll(this.children)
-      d3.select(this).transition().duration(400).attr('r', 25);
-      children.transition().duration(400).attr('r', 25);
+        var children = d3.selectAll(this.children);
+        d3.select(this).transition().duration(400).attr('r', 25);
+        children.transition().duration(400).attr('r', 25);
       })
+      .on('click', _.debounce(function (d, i) {
+
+        var info = d3.select(d)[0][0][0];
+        $('iframe').remove();
+        $('div.youtubevidbox').append(info.video);
+        // Using $scope.$apply to force angular to rerender once the scope has been updated with the current snp
+        $scope.$apply($scope.current = { title: info.title, rsid: info.rsid, pair: info.pair, outcome: info.outcome, video: info.video });
+      }))
       .each(function (d, index) {
           d3.select(this)
             .selectAll("circle")
@@ -127,12 +135,7 @@ angular.module('genome.self', [])
         .attr("pair", function(d){ return d.pair; })
         .attr("outcome", function(d){ return d.outcome; })
         .attr("video", function(d) { return d.video; })
-        .on('click', function (d, i) {
-          $('iframe').remove();
-          $('div.youtubevidbox').append(d.video);
-          // Using $scope.$apply to force angular to rerender once the scope has been updated with the current snp
-          $scope.$apply($scope.current = { title: d.title, rsid: d.rsid, pair: d.pair, outcome: d.outcome, video: d.video });
-        });
+
       d3.select(this)
           .select('line')
           .attr("x2", x(d[0].x) + inverted * z(d[0].z))
