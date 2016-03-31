@@ -1,12 +1,11 @@
-'use strict';
-
 describe('Self Controller', function () {
-  beforeEach(module('genome.self'));
+  beforeEach(module('genome.self', 'ngCookies'));
 
-  var $scope, $cookies, $location, SelfFactory, d3Service, $rootScope;
+  var $scope, $controller, createController, $cookies, $location, SelfFactory, d3Service, $rootScope, $httpBackend;
 
 
-  describe('Helix Production', function () {
+
+  describe('SelfFactory', function () {
     var $http, SelfFactory;
 
     beforeEach(inject(function (_SelfFactory_, _$http_) {
@@ -14,19 +13,15 @@ describe('Self Controller', function () {
       SelfFactory = _SelfFactory_;
     }));
 
-    it('should exist', function () {
+    it('self factory should exist', function () {
       expect(SelfFactory).to.exist;
     });
 
-    xit('should have a method `getAll`', function () {
-      expect(Links.getAll).to.be.a('function');
+    it('should have a method `getSnps`', function () {
+      expect(SelfFactory.getSnps).to.be.a('function');
     });
 
-    xit('should have a method `addOne`', function () {
-      expect(Links.addOne).to.be.a('function');
-    });
-
-    xit('should get all links with `getAll`', function () {
+    xit('should get all SNPS with `getSnps`', function () {
       var mockResponse = [
         { title: 'Twitter',
           url: 'https://twitter.com' },
@@ -36,31 +31,54 @@ describe('Self Controller', function () {
 
       $httpBackend.expect('GET', '/api/links').respond(mockResponse);
 
-      Links.getAll().then(function (links) {
-        expect(links).to.deep.equal(mockResponse);
-      });
-
       $httpBackend.flush();
     });
-
-    xit('should add a new link with `addOne`', function () {
-      var github = { url: 'https://github.com/hackreactor-labs' };
-
-      $httpBackend
-        .expect('POST', '/api/links', JSON.stringify(github))
-        .respond(201, {
-          url: 'https://github.com/hackreactor-labs',
-          title: 'Hack Reactor Labs'
-        });
-
-      Links.addOne(github).then(function (resp) {
-        expect(resp.status).to.equal(201);
-        expect(resp.data.title).to.equal('Hack Reactor Labs');
-      });
-
-      $httpBackend.flush();
-    });
-
   });
+
+  describe('SelfController', function (){
+
+    beforeEach(inject(function($injector) {
+      
+      // mock out our dependencies
+      $rootScope = $injector.get('$rootScope');
+      $httpBackend = $injector.get('$httpBackend');
+      SelfFactory = $injector.get('SelfFactory');
+      $location = $injector.get('$location');
+      $scope = $rootScope.$new();
+      $cookies = $injector.get('$cookies');
+
+
+      $controller = $injector.get('$controller');
+
+      createController = function () {
+
+        return $controller('SelfController', {
+          $rootScope: $rootScope,
+          $cookies: $cookies,
+          $scope: $scope,
+          SelfFactory: SelfFactory,
+          $location: $location,
+          d3Service: d3Service
+        });
+      };
+
+      createController();
+    }));
+
+    it('should have a functions to draw and remove the helix', function(){
+      expect($rootScope.removeHelix).to.be.a('function');
+      expect($scope.draw).to.be.a('function');
+      expect($scope.generateData).to.be.a('function');
+    });
+
+    it('should call whichView when the controller is loaded', function(){
+      sinon.spy(SelfFactory, 'getSnps');
+      $httpBackend.expectGET('/api/getsnps').respond(200);
+    });
+
+
+    
+  });
+
 
 });

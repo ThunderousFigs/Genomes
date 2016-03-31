@@ -8,21 +8,20 @@ module.exports = function(config) {
 
     hostname: '127.0.0.1',
 
-
     // frameworks to use
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'chai', 'sinon'],
 
-    plugins: ['karma-phantomjs-launcher', 'karma-mocha', 'karma-chai'],
-
+    plugins: ['karma-phantomjs-launcher', 'karma-mocha', 'karma-chai', 'karma-sinon'],
 
     // list of files / patterns to load in the browser
     files: [
       '../../static/lib/angular/angular.js',
+      '../../static/lib/angular-cookies/angular-cookies.js',
       '../../static/lib/angular-mocks/angular-mocks.js',
       '../../static/lib/angular-route/angular-route.js',
       '../../static/lib/angular-intro.js/src/angular-intro.js',
-      '../../static/lib/angular-cookies/angular-cookies.js',
       '../../static/lib/jQuery/dist/jquery.min.js',
+      '../../static/lib/d3/d3.min.js',
       'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js',
       'http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js',
       'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js',
@@ -32,13 +31,6 @@ module.exports = function(config) {
       '../client/routing-spec.js',
       '../client/self-spec.js'
     ],
-
-
-    // list of files to exclude
-    exclude: [
-    ],
-
-
 
 
     // test results reporter to use
@@ -53,7 +45,6 @@ module.exports = function(config) {
     // enable / disable colors in the output (reporters and logs)
     colors: true,
 
-
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
@@ -62,21 +53,10 @@ module.exports = function(config) {
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: false,
 
-
-    // Start these browsers, currently available:
-    // - Chrome
-    // - ChromeCanary
-    // - Firefox
-    // - Opera
-    // - Safari (only Mac)
-    // - PhantomJS
-    // - IE (only Windows)
     browsers: ['PhantomJS'],
-
 
     // If browser does not capture in given timeout [ms], kill it
     captureTimeout: 10000,
-
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit

@@ -18,10 +18,10 @@
     expect($route.routes['/signin'].templateUrl).to.equal('/');
   });
 
-  it('Should have /pool route, template, and controller', function () {
-    expect($route.routes['/pool']).to.be.defined;
-    expect($route.routes['/pool'].controller).to.equal('PoolController');
-    expect($route.routes['/pool'].templateUrl).to.equal('/static/app/pool/pool.html');
+  it('Should have /tree route, template, and controller', function () {
+    expect($route.routes['/tree']).to.be.defined;
+    expect($route.routes['/tree'].controller).to.equal('TreeController');
+    expect($route.routes['/tree'].templateUrl).to.equal('/static/app/tree/tree.html');
   });
 
   it('Should have /self route, template, and controller', function () {

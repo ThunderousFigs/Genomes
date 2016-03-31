@@ -1,18 +1,24 @@
 angular.module('genome.self', [])
 
-.controller('SelfController', function ($scope, $cookies, $location, SelfFactory, d3Service, $rootScope) {
+.controller('SelfController', [ '$scope', '$cookies', '$location', 'SelfFactory', 'd3Service', '$rootScope', function ($scope, $cookies, $location, SelfFactory, d3Service, $rootScope) {
 
   $scope.outcomes = $scope.outcomes || [];
   $scope.current = {};
 
-   var whichView = function() {
+  $scope.whichView = whichView;
+
+  var whichView = function() {
     $rootScope.view = $location.$$path;
-  }
+  };
+
   whichView();
 
   $rootScope.removeHelix = function () {
     d3.select("svg#helix").remove();
   }
+
+
+  $scope.fills = fills;
 
     /* The 'FILLS' block will determine the availability of colors, balls and lines
      * and what quantity and other attributes the d3 plot should contain */
@@ -42,6 +48,8 @@ angular.module('genome.self', [])
       .attr("fill", "white");
   var container = svg.append("g");
   var counter = 0;
+
+  $scope.generateData = generateData;
 
   function generateData() {
     counter++;
@@ -74,6 +82,9 @@ angular.module('genome.self', [])
       return data;
   }
   var exit = false;
+
+  $scope.draw = draw;
+
   function draw () {
     if(exit) {
       return;
@@ -184,6 +195,8 @@ angular.module('genome.self', [])
       skipLabel: '<span style="color:red">Exit</span>',
       doneLabel: 'Thanks'
   };
+
+  $scope.remove = remove;
   //This function collapses the helix for a visual transition into the Pool Page.
   //This function gets called by the transitionToPool function
   var remove = function() {
@@ -219,7 +232,7 @@ angular.module('genome.self', [])
     remove();
     setTimeout(function(){$scope.$apply($location.path('/pool'));  $rootScope.removeHelix();}, 500);
   }
-})
+}])
 .factory('SelfFactory', function ($http) {
 /**
   * Used to retrieve information about SNPs pertaining to currently logged in user
