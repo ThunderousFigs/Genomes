@@ -17,7 +17,6 @@ angular.module('genome.self', [])
     d3.select("svg#helix").remove();
   }
 
-
   $scope.fills = fills;
 
     /* The 'FILLS' block will determine the availability of colors, balls and lines
@@ -210,7 +209,6 @@ angular.module('genome.self', [])
       .attr('y1', 200)
       .attr('y2', 200)
 
-
     d3.selectAll("circle")
       .transition()
       .duration(2000)
@@ -237,6 +235,8 @@ angular.module('genome.self', [])
 /**
   * Used to retrieve information about SNPs pertaining to currently logged in user
 **/
+  
+
   var getSnps = function (userId) {
     return $http({
       method: 'POST',

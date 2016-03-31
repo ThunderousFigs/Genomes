@@ -46,12 +46,9 @@ describe('Self Controller', function () {
       $location = $injector.get('$location');
       $scope = $rootScope.$new();
       $cookies = $injector.get('$cookies');
-
-
       $controller = $injector.get('$controller');
 
       createController = function () {
-
         return $controller('SelfController', {
           $rootScope: $rootScope,
           $cookies: $cookies,
@@ -61,7 +58,6 @@ describe('Self Controller', function () {
           d3Service: d3Service
         });
       };
-
       createController();
     }));
 
@@ -71,13 +67,16 @@ describe('Self Controller', function () {
       expect($scope.generateData).to.be.a('function');
     });
 
-    it('should call whichView when the controller is loaded', function(){
+    it('should call getSnps when the controller is loaded', function(){
+      $cookies.user_profile_id = "demo_id";
       sinon.spy(SelfFactory, 'getSnps');
-      $httpBackend.expectGET('/api/getsnps').respond(200);
+      $httpBackend.expectPOST('/api/getsnps').respond(200);
+      $httpBackend.flush();
+      expect(SelfFactory.getSnps.called).to.equal(true);
+
     });
 
 
-    
   });
 
 
