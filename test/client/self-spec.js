@@ -53,17 +53,6 @@ describe('Self Controller', function () {
       expect($scope.generateData).to.be.a('function');
     });
 
-    // it('should call getSnps when the controller is loaded', function(){
-    //   $httpBackend.when('POST', '/api/getsnps', 'demo_id').respond(function(method, url, data, headers, params){
-
-    //   });
-
-    //   $httpBackend.flush();
-
-    //   expect($http.post('/api/getsnps', 'demo_id')).to.be.equal.to(auth);
-    // });
-
-
   });
 
 
