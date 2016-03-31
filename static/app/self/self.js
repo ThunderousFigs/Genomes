@@ -98,14 +98,14 @@ angular.module('genome.self', [])
         d3.select(this).transition().duration(400).attr('r', 25);
         children.transition().duration(400).attr('r', 25);
       })
-      .on('click', _.debounce(function (d, i) {
+      .on('click', function (d, i) {
 
         var info = d3.select(d)[0][0][0];
         $('iframe').remove();
         $('div.youtubevidbox').append(info.video);
         // Using $scope.$apply to force angular to rerender once the scope has been updated with the current snp
         $scope.$apply($scope.current = { title: info.title, rsid: info.rsid, pair: info.pair, outcome: info.outcome, video: info.video });
-      }))
+      })
       .each(function (d, index) {
           d3.select(this)
             .selectAll("circle")
