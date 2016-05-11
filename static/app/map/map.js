@@ -9,12 +9,7 @@ angular.module('genome.map', ['angular-intro'])
   var relativesList = [];
   $scope.relatives = $rootScope.rels;
 
-  var svg = d3.select('.mapCanvas').append("svg")
-    .attr("fill", "transparent")
-    .attr("width", $window.innerWidth)
-    .attr("height", $window.innerHeight - 500)
-    .attr("id", "mainCanvas")
-    .append("g");
+  var svg;
 
   var createMap = function (rotationNums) {
     map = new Datamap({
@@ -105,6 +100,13 @@ angular.module('genome.map', ['angular-intro'])
 
   //Grab relatives from the database, then initialize bubbles
    $scope.getRelatives = function() {
+     svg = d3.select('.mapCanvas').append("svg")
+              .attr("fill", "transparent")
+              .attr("width", $window.innerWidth)
+              .attr("height", $window.innerHeight - 500)
+              .attr("id", "mainCanvas")
+              .append("g");
+
      Relatives.getRelatives()
      //Can refactor to return the promise values within the relatives factory if so desired
      .then(function(relatives) {
