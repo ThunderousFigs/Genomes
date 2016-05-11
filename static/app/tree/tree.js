@@ -39,12 +39,12 @@ angular.module('genome.tree', ['genome.treeService'])
   $rootScope.IntroOptions = {
       steps:[{
           intro: "Welcome to your Family Tree! Every bubble represents one of your relatives. Click the bubbles for more info!"
-        },
-        {
-          element: document.querySelector('#path2'),
-          intro: "See a map of your relatives' birth country by clicking on this button.",
-          position: 'right'
         }
+        // {
+        //   element: document.querySelector('#path2'),
+        //   intro: "See a map of your relatives' birth country by clicking on this button.",
+        //   position: 'right'
+        // }
       ],
       showStepNumbers: false,
       exitOnOverlayClick: true,
