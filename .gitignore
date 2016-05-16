@@ -18,11 +18,12 @@ config.py
 npm-debug.log
 server/static/scripts/main.js
 server/static/img/
+config.py
+
 
 # Distribution / packaging
 
 .Python
-config.py
 env/
 build/
 develop-eggs/

@@ -1,25 +1,38 @@
 angular.module('genome.map', ['angular-intro'])
 .controller('MapController', function($scope, d3Service, Relatives, $rootScope, $window, $location) {
+
   var map;
+
+  //SET ROOTSCOPE TO CURRENT VIEW
   var whichView = function() {
     $rootScope.view = $location.$$path;
   };
   whichView();
 
+  //TRANSITION VIEW TO TREE
+  $rootScope.showTree = function(){
+    clearInterval($rootScope.globeSpin);
+    $rootScope.killGlobe();
+    $rootScope.curPage = '/tree';
+    $location.path('/tree/');
+  };
+
   var relativesList = [];
   $scope.relatives = $rootScope.rels;
 
-  var svg = d3.select('.mapCanvas').append("svg")
-    .attr("fill", "transparent")
-    .attr("width", $window.innerWidth)
-    .attr("height", $window.innerHeight - 500)
-    .attr("id", "mainCanvas")
-    .append("g");
-
+  //CREATE SVG DATAMAP
   var createMap = function (rotationNums) {
+    //SET SIZE OF MAP DIV TO SIZE OF WINDOW
+    function sizeMap(){
+      var w = $window.innerWidth;
+      var h = $window.innerHeight;
+      $('.mapCanvas').width(w).height(h);
+    }
+    sizeMap();
     map = new Datamap({
-        element: document.getElementById('mainCanvas'),
         scope: 'world',
+        //element: document.getElementById('mainCanvas'),
+        element: document.getElementsByClassName('mapCanvas')[0],
         projection: 'orthographic',
         geographyConfig: {
             popupOnHover: false,
@@ -38,13 +51,15 @@ angular.module('genome.map', ['angular-intro'])
         }
     });
     map.graticule();
+    //CREATE BUBBLE FOR EACH USER RELATIVE
     createBubbleHover();
-    //create bubbles for each relative in the relative list, after parsing with makeNewBubbleData
   };
 
+  //ASSIGN ROTATION PROPERTIES TO DATAMAP
   var yaw = 90;
   var roll = -17;
 
+  //METHODS HANDLING GLOBE SPIN INTERVAL AND REMOVAL
   var keepSpinning = function () {
     $('svg.datamap').remove();
     createMap([yaw+=1, roll]);
@@ -64,6 +79,7 @@ angular.module('genome.map', ['angular-intro'])
     });
   };
 
+  //CREATE BUBBLE DATA FOR EACH RELATIVE
   var makeNewBubbleData = function() {
     var geoInfo = {
       'United States': [36.5, -101.25, 'USA'],
@@ -103,12 +119,10 @@ angular.module('genome.map', ['angular-intro'])
     }
   };
 
-  //Grab relatives from the database, then initialize bubbles
+  //GRAB RELATIVES FROM DB AND INTITIALIZE
    $scope.getRelatives = function() {
      Relatives.getRelatives()
-     //Can refactor to return the promise values within the relatives factory if so desired
      .then(function(relatives) {
-       //Refactor? potentially redundant addition of relatives to $scope and $rootScope.
        $scope.relatives = relatives.data.relativeList;
        makeNewBubbleData();
        createMap();
@@ -116,6 +130,5 @@ angular.module('genome.map', ['angular-intro'])
        console.error('Error retrieving relatives: ', err);
      });
    };
-   //Initialize the page with a call to getRelatives
    $scope.getRelatives();
 });
