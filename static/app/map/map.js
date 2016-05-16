@@ -11,7 +11,6 @@ angular.module('genome.map', ['angular-intro'])
 
   //TRANSITION VIEW TO TREE
   $rootScope.showTree = function(){
-    console.log('show tree');
     clearInterval($rootScope.globeSpin);
     $rootScope.killGlobe();
     $rootScope.curPage = '/tree';
