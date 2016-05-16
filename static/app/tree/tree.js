@@ -8,7 +8,9 @@ angular.module('genome.tree', ['genome.treeService'])
   whichView();
 
   $rootScope.showTree = function(){
+    console.log('show tree');
     clearInterval($rootScope.globeSpin);
+    $rootScope.killGlobe();
     $rootScope.curPage = '/tree';
     $location.path('/tree/');
   };
@@ -126,7 +128,7 @@ angular.module('genome.tree', ['genome.treeService'])
           .attr('class', 'link');
 
       update();
-            
+
       $scope.loaded = true;
     }, function(err) {
       console.error('Error retrieving relatives: ', err);

@@ -231,6 +231,16 @@ svg#helix {
 }
 
 /*POOL PAGE*/
+.mapCanvas {
+  position: absolute;
+  margin-left: 12%;
+  padding-bottom: 5%;
+  width: 88%;
+  height: 100%;
+  max-width: 88%;
+  max-height: 88%;
+  background-color: #EEEEEE;
+}
 
 svg#mainCanvas {
   position: absolute;
@@ -297,7 +307,8 @@ svg {
 }
 
 svg.datamap {
-  padding-top: 0px;
+  position: absolute;
+  margin-top: -2%;
 }
 
 .node circle {
