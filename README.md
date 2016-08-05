@@ -61,6 +61,7 @@ Back-end
 
 Testing/Automation
 - Mocha/Chai
+- Karma
 - Jasmine
 - Grunt
 
